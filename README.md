@@ -1,1 +1,1 @@
-# Adjustment for Confounding using Pre-Trained Representations
+# Adjustment for Confounding via Pre-Trained Representations
