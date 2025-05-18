@@ -6,7 +6,9 @@ venv/
 __pycache__/
 
 # Data files
-data/imdb/
-data/pneumonia/
-data/representations/
-data/sentiment/
+data/*/*
+!data/*/.gitkeep
+
+# Other files
+*.DS_Store
+results/*
