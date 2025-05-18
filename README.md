@@ -4,6 +4,7 @@ This repository contains the code for the experiments and figures of the **ICML 
 
 ## Citation
 
+```bibtex
 @inproceedings{
   schulte2025adjustment,
   title={Adjustment for Confounding using Pre-Trained Representations},
