@@ -19,7 +19,7 @@ This repository contains the code for the experiments and figures of the **ICML 
 │ ├── dml_cnn/ # DML with/out pre-training 
 │ ├── intrinsic_dims/ # Intrinsic dimension estimation
 │ ├── feature_rotation/ # Noninvariance of sparsity to feature rotations
-│ ├── asym_norm/ # Asymptototic normality experiments 
+│ ├── asym_norm/ # Asymptotic normality experiments 
 │ └── hcm/ # Exploring HCM
 │
 ├── results/ # Folder for all generated results
