@@ -6,10 +6,8 @@ venv/
 __pycache__/
 
 # Data files
-data/imdb/
-data/xray/*/*
-!data/*/.gitkeep
-!data/*/*/.gitkeep
+data/**
+!data/**/.gitkeep
 
 # Results
 results/*
