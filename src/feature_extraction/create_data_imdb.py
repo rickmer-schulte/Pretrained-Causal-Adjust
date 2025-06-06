@@ -87,7 +87,7 @@ def main():
 
     # Save to CSV
     logger.info("Saving data to CSV...")
-    save_dir = "data/representations/imdb"
+    save_dir = "data/imdb"
     os.makedirs(save_dir, exist_ok=True)
     save_path = os.path.join(save_dir, "imdb_with_hidden_states_sentiment.csv")
     
