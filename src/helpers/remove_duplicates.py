@@ -47,8 +47,8 @@ def process_pneumonia_folder(pneumonia_folder_path):
 def main():
     BASE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 
-    original_folder = os.path.join(BASE_PATH, 'data/pneumonia/all')
-    unique_folder = os.path.join(BASE_PATH, 'data/pneumonia/all_unique')
+    original_folder = os.path.join(BASE_PATH, 'data/xray/raw/all')
+    unique_folder = os.path.join(BASE_PATH, 'data/xray/raw/all_unique')
 
     if not os.path.exists(original_folder):
         print(f"Original folder not found: {original_folder}")

@@ -6,8 +6,8 @@ from visualization.plotting import plot_intrinsic_dimension_barplot
 from feature_extraction.pretrained_models_xrv import load_torchxrayvision_model, extract_features_from_folder
 
 def main(
-    base_dir="data/representations/pneumonia",
-    dataset_dir="data/pneumonia",
+    base_dir="data/xray/representations",
+    dataset_dir="data/xray/raw",
     output_dir="results/intrinsic_dimensions",
     verbose=True
 ):

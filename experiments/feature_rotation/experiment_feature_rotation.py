@@ -46,7 +46,7 @@ def main():
     os.makedirs(plots_dir, exist_ok=True)
 
     # Define dataset directory
-    dataset_dir = "data/pneumonia/test"
+    dataset_dir = "data/xray/raw/test"
 
     # 1. Load Pre-trained Model
     print("Loading pre-trained torchxrayvision model...")
