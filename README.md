@@ -39,16 +39,23 @@ This repository contains the code for the experiments and figures of the **ICML 
 
 ## Python Setup
 ```python
-git clone
-cd pretrained-causal-adjust
-# Possibly create a new virtual environment and activate it
+# Clone the repository
+git clone https://github.com/<your_username>/Pretrained-Causal-Adjust.git
+cd Pretrained-Causal-Adjust
+
+# (Optional) Create and activate a virtual environment
+# Recommended if you don't already use Poetry's built-in venvs
+python -m venv .venv
+source .venv/bin/activate   # On Windows use: .venv\\Scripts\\activate
+
+# Install all dependencies
 poetry install --no-root
 ```
 
 ## Data Setup
 ### X-Ray
-1. Download the chest X-ray dataset from [Data Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2) or [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) 
-2. Run `remove_duplicates.py` to remove mulitple x-rays per patient:
+1. Download the chest X-ray dataset from [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) or [Data Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2).
+2. Run `remove_duplicates.py` to remove mulitple X-rays per patient:
 ```python
 python src/data_setup/remove_duplicates.py
 ```
@@ -57,15 +64,18 @@ python src/data_setup/remove_duplicates.py
 python src/data_setup/create_data_xray.py densenet121-res224-all 
 ```
 
-**Details:** Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the data folders (train/test/val) in the folder `data/xray/raw`. Subsequently run `remove_duplicates.py` to remove mulitple x-rays per patient (otherwise there would be multiple X-rays for certain patients in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `create_data_xray.py` to extract representations from user-specified pre-trained model(s) for each X-ray image in the dataset. Choose different pre-trained models from the [TorchXRayVision](https://github.com/mlmed/torchxrayvision) library by varying the dataset name in `densenet121-res224-DATASET`. The representations as well the the labels that indicates the presence of the disease pneumomina for each x-ray will be stored at `data/xray/representations`.
+**Details:** Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the data folders (train/test/val) in the folder `data/xray/raw`. Subsequently run `remove_duplicates.py` to remove mulitple X-rays per patient (otherwise there would be multiple X-rays for certain patients in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `create_data_xray.py` to extract representations from user-specified pre-trained model(s) for each X-ray image in the dataset. Choose different pre-trained models from the [TorchXRayVision](https://github.com/mlmed/torchxrayvision) library by varying the dataset name in `densenet121-res224-DATASET`. The representations and labels (indicating the presence of pneumomina) for each X-ray will be stored at `data/xray/representations`.
 
 ### IMDb
-1. Run `python src/data_setup/create_data_imdb.py`
+1. Run `create_data_imdb.py` to load and process the IMDb data:
+```python
+python src/data_setup/create_data_imdb.py
+```
   
-**Details:** The download and extraction of pre-trained representations for the IMDb data is performed by running `create_data_imdb.py`. This will create a CSV file including the text review, the related pre-trained representations, and sentiment label at `data/imdb/imdb_with_hidden_states_sentiment.csv`.
+**Details:** Download and extract pre-trained representations for the IMDb data by running `create_data_imdb.py`. This creates a CSV file including text reviews, their pre-trained representations and sentiment labels at `data/imdb/imdb_with_hidden_states_sentiment.csv`.
 
 ## Experiments
-After the data setup, each experiment can be conducted by running the respective python file or notebook from the `experiments` folder. All results will be stored in a dedicated folder in the `results` folder.
+After the setup, each experiment can be conducted by running the respective python file or notebook from the `experiments` folder. All results will be stored in a dedicated folder in the `results` folder.
 
 ## Citation
 
