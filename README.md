@@ -40,7 +40,7 @@ This repository contains the code for the experiments and figures of the **ICML 
 ## Python Setup
 ```python
 # Clone the repository
-git clone https://github.com/<your_username>/Pretrained-Causal-Adjust.git
+git clone https://github.com/rickmer-schulte/Pretrained-Causal-Adjust.git
 cd Pretrained-Causal-Adjust
 
 # (Optional) Create and activate a virtual environment
