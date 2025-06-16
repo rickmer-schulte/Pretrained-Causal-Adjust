@@ -50,7 +50,7 @@ poetry install --no-root
 2. Run `remove_duplicates.py` to remove mulitple x-rays per patient
 3. Run `create_data_xray.py` to extract pre-trained representations 
 
-Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the datafolders (train/test/val) in the folder `data/xray/raw`. Subsequently run `src/data_setup/remove_duplicates.py` to remove mulitple x-rays per patient (otherwise there would be multiple X-rays for certain patient in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `src/data_setup/create_data_xray.py` to extract representations from a user-specified pre-trained model for each X-ray image in the dataset. The label that indicates the presence of the disease pneumomina for each x-ray will also be stored. This data can be found at `data/xray/representations`.
+Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the data folders (train/test/val) in the folder `data/xray/raw`. Subsequently run `src/data_setup/remove_duplicates.py` to remove mulitple x-rays per patient (otherwise there would be multiple X-rays for certain patients in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `src/data_setup/create_data_xray.py` to extract representations from a user-specified pre-trained model for each X-ray image in the dataset. The label that indicates the presence of the disease pneumomina for each x-ray will also be stored. The data will be stored in `data/xray/representations`.
 
 #### IMDb
 1. Run `create_data_imdb.py`
