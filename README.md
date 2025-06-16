@@ -10,6 +10,7 @@ This repository contains the code for the experiments and figures of the **ICML 
 ├── data/ # Raw and processed data
 │ └── xray
 │   ├── raw/
+│   ├── processed/
 │   └── representations/
 │ └── imdb/
 │
@@ -45,17 +46,26 @@ poetry install --no-root
 ```
 
 ## Data Setup
-#### X-Ray
+### X-Ray
 1. Download the chest X-ray dataset from [Data Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2) or [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) 
-2. Run `remove_duplicates.py` to remove mulitple x-rays per patient
-3. Run `create_data_xray.py` to extract pre-trained representations 
+2. Run `remove_duplicates.py` to remove mulitple x-rays per patient:
+```python
+python src/data_setup/remove_duplicates.py
+```
+3. Run `create_data_xray.py MODEL_NAMES` to extract representations from pre-trained model(s), i.e.:
+```python
+python src/data_setup/create_data_xray.py densenet121-res224-all 
+```
 
-Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the data folders (train/test/val) in the folder `data/xray/raw`. Subsequently run `src/data_setup/remove_duplicates.py` to remove mulitple x-rays per patient (otherwise there would be multiple X-rays for certain patients in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `src/data_setup/create_data_xray.py` to extract representations from a user-specified pre-trained model for each X-ray image in the dataset. The label that indicates the presence of the disease pneumomina for each x-ray will also be stored. The data will be stored in `data/xray/representations`.
+**Details:** Download the Chest X-Ray image dataset from either of the two sources. Unzip the downloaded data file and place the data folders (train/test/val) in the folder `data/xray/raw`. Subsequently run `remove_duplicates.py` to remove mulitple x-rays per patient (otherwise there would be multiple X-rays for certain patients in the dataset). The dataset will be stored at `data/processed/all_unique`. Afterwards run `create_data_xray.py` to extract representations from user-specified pre-trained model(s) for each X-ray image in the dataset. Choose different pre-trained models from the [TorchXRayVision](https://github.com/mlmed/torchxrayvision) library by varying the dataset name in `densenet121-res224-DATASET`. The representations as well the the labels that indicates the presence of the disease pneumomina for each x-ray will be stored at `data/xray/representations`.
 
-#### IMDb
-1. Run `create_data_imdb.py`
+### IMDb
+1. Run `python src/data_setup/create_data_imdb.py`
   
-The download and extraction of pre-trained representations for the IMDb data is performed by running the script at `src/data_setup/create_data_imdb.py`. This will create a CSV file including the text review, the related pre-trained representations, and sentiment label at `data/imdb/imdb_with_hidden_states_sentiment.csv`.
+**Details:** The download and extraction of pre-trained representations for the IMDb data is performed by running `create_data_imdb.py`. This will create a CSV file including the text review, the related pre-trained representations, and sentiment label at `data/imdb/imdb_with_hidden_states_sentiment.csv`.
+
+## Experiments
+After the data setup, each experiment can be conducted by running the respective python file or notebook from the `experiments` folder. All results will be stored in a dedicated folder in the `results` folder.
 
 ## Citation
 
