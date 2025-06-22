@@ -1,6 +1,6 @@
 # Adjustment for Confounding using Pre-Trained Representations
 
-This repository contains the code for the experiments and figures of the **ICML 2025** paper **["Adjustment for Confounding using Pre-Trained Representations"](https://openreview.net/forum?id=p4CHBlYxYj)**.
+This repository contains the code for the experiments and figures of the **ICML 2025** paper **["Adjustment for Confounding using Pre-Trained Representations"](https://www.arxiv.org/abs/2506.14329)**.
 
 ## Project Structure
 
